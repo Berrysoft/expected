@@ -71,7 +71,7 @@ jobs:
   - script: |
       call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" $(arch)
       mkdir build & cd build
-      cmake .. -GNinja -DCMAKE_CXX_COMPILER=cl -DCMAKE_BUILD_TYPE=Release -DEXPECTED_BUILD_TESTS=on
+      cmake .. -GNinja -DCMAKE_CXX_COMPILER=cl -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=on -DEXPECTED_BUILD_TESTS=on
     displayName: 'Configure all projects'
     condition: eq(variables.rid, 'win')
     env:
@@ -80,7 +80,7 @@ jobs:
   - script: |
       call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" $(arch)
       mkdir build & cd build
-      cmake .. -GNinja -DCMAKE_CXX_COMPILER=$(bindir2)/g++.exe -DCMAKE_BUILD_TYPE=Release -DEXPECTED_BUILD_TESTS=on
+      cmake .. -GNinja -DCMAKE_CXX_COMPILER=$(bindir2)/g++.exe -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=on -DEXPECTED_BUILD_TESTS=on
     displayName: 'Configure all projects'
     condition: eq(variables.rid, 'mingw')
     env:

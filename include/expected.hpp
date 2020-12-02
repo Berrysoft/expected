@@ -289,7 +289,7 @@ namespace expected
             return *this;
         }
 
-        auto run() const
+        auto run()
         {
             auto& value = m_handle.promise().m_value;
             while (!m_handle.done() && !value.error())
