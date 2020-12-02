@@ -204,7 +204,7 @@ namespace expected
                     {
                         h.promise().return_value(*value.error());
                         h.promise().m_value.set_stacktrace(std::move(value.stacktrace()));
-                        return std::noop_coroutine();
+                        return coro::noop_coroutine();
                     }
                     else
                     {
