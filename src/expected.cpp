@@ -1,3 +1,4 @@
+#include <boost/stacktrace/frame.hpp>
 #include <boost/stacktrace/stacktrace.hpp>
 #include <expected.hpp>
 
