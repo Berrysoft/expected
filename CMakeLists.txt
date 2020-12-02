@@ -34,8 +34,13 @@ if(WIN32)
 else()
     set(STACKTRACE "stacktrace_basic")
 endif()
+
 find_package(Boost REQUIRED COMPONENTS ${STACKTRACE} unit_test_framework REQUIRED)
 target_link_libraries(expected PRIVATE Boost::${STACKTRACE} Boost::dynamic_linking)
+
+if(APPLE)
+    target_compile_definitions(expected PRIVATE "_GNU_SOURCE")
+endif()
 
 option(EXPECTED_INSTALL "Install Expected library" OFF)
 option(EXPECTED_BUILD_TESTS "Build tests." OFF)
