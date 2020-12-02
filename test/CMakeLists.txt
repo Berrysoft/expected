@@ -1,11 +1,6 @@
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-
 function(expected_add_test name)
     add_executable(${name} "${name}.cpp")
-    target_link_libraries(${name} PRIVATE expected Boost::unit_test_framework)
-    if(NOT WIN32 OR MINGW)
-	    target_link_libraries(${name} PRIVATE Boost::dynamic_linking)
-    endif()
+    target_link_libraries(${name} PRIVATE expected Boost::unit_test_framework Boost::dynamic_linking)
     add_test(NAME ${name} COMMAND ${name})
 endfunction()
 
